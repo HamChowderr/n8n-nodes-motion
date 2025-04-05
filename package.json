@@ -1,0 +1,58 @@
+{
+  "name": "n8n-nodes-motion",
+  "version": "0.1.0",
+  "description": "n8n community node for Motion API integration",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n-node-motion",
+    "motion",
+    "project management",
+    "workflow",
+    "automation"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "chowderr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HamChowderr/n8n-nodes-motion.git"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && gulp",
+    "dev": "tsc --watch",
+    "format": "prettier src/nodes src/credentials --write",
+    "lint": "eslint src/nodes src/credentials",
+    "lintfix": "eslint src/nodes src/credentials --fix",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/MotionApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Motion/Motion.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "n8n-core": "^1.0.0",
+    "n8n-workflow": "^1.0.0",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.4"
+  }
+} 
