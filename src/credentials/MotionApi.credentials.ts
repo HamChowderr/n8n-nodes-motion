@@ -17,14 +17,6 @@ export class MotionApi implements ICredentialType {
       typeOptions: {
         password: true,
       },
-    },
-    {
-      displayName: 'Workspace ID',
-      name: 'workspaceId',
-      type: 'string',
-      default: '',
-      required: true,
-      description: 'ID of the Motion workspace',
     }
   ];
 } 

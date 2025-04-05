@@ -510,7 +510,6 @@ export class Motion implements INodeType {
     
     const credentials = await this.getCredentials('motionApi') as {
       apiKey: string;
-      workspaceId: string;
     };
     
     // Base API URL for Motion
@@ -565,6 +564,7 @@ export class Motion implements INodeType {
           // **********************************************
           if (operation === 'create') {
             const workspaceId = this.getNodeParameter('workspaceId', i) as string;
+            
             const title = this.getNodeParameter('title', i) as string;
             const additionalFields = this.getNodeParameter('additionalFields', i) as {
               description?: string;
@@ -603,7 +603,7 @@ export class Motion implements INodeType {
               method: 'POST' as IHttpRequestMethods,
               url: `${baseUrl}/tasks`,
               headers: {
-                'x-motion-api-key': credentials.apiKey,
+                'X-API-Key': credentials.apiKey,
                 'Content-Type': 'application/json',
               },
               body: data,
@@ -623,7 +623,7 @@ export class Motion implements INodeType {
               method: 'GET' as IHttpRequestMethods,
               url: `${baseUrl}/tasks/${taskId}`,
               headers: {
-                'x-motion-api-key': credentials.apiKey,
+                'X-API-Key': credentials.apiKey,
               },
               json: true,
             };
@@ -636,6 +636,7 @@ export class Motion implements INodeType {
           // **********************************************
           else if (operation === 'getAll') {
             const workspaceId = this.getNodeParameter('workspaceId', i) as string;
+            
             const returnAll = this.getNodeParameter('returnAll', i) as boolean;
             const filters = this.getNodeParameter('filters', i) as {
               projectId?: string;
@@ -663,7 +664,7 @@ export class Motion implements INodeType {
               method: 'GET' as IHttpRequestMethods,
               url: `${baseUrl}/tasks`,
               headers: {
-                'x-motion-api-key': credentials.apiKey,
+                'X-API-Key': credentials.apiKey,
               },
               qs,
               json: true,
@@ -730,7 +731,7 @@ export class Motion implements INodeType {
               method: 'PATCH' as IHttpRequestMethods,
               url: `${baseUrl}/tasks/${taskId}`,
               headers: {
-                'x-motion-api-key': credentials.apiKey,
+                'X-API-Key': credentials.apiKey,
                 'Content-Type': 'application/json',
               },
               body: data,
@@ -750,7 +751,7 @@ export class Motion implements INodeType {
               method: 'DELETE' as IHttpRequestMethods,
               url: `${baseUrl}/tasks/${taskId}`,
               headers: {
-                'x-motion-api-key': credentials.apiKey,
+                'X-API-Key': credentials.apiKey,
               },
               json: true,
             };

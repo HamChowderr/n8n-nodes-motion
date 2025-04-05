@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-motion",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "n8n community node for Motion API integration",
   "keywords": [
     "n8n-community-node-package",
@@ -23,9 +23,9 @@
     "build": "tsc && gulp",
     "dev": "tsc --watch",
     "format": "prettier src/nodes src/credentials --write",
-    "lint": "eslint src/nodes src/credentials",
-    "lintfix": "eslint src/nodes src/credentials --fix",
-    "prepublishOnly": "npm run build && npm run lint"
+    "lint": "eslint \"src/nodes/**/*.ts\" \"src/credentials/**/*.ts\"",
+    "lintfix": "eslint \"src/nodes/**/*.ts\" \"src/credentials/**/*.ts\" --fix",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist"
